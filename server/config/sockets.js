@@ -40,15 +40,35 @@ module.exports.sockets = {
   ***************************************************************************/
   // adapter: 'memory',
 
-  //
-  // -OR-
-  //
-  //
   adapter: 'socket.io-redis',
   host: '127.0.0.1',
   port: 6379,
   db: 2,
   pass: null,
+
+  origins: '*:*',
+  heartbeats: true,
+  'close timeout': 60,
+  'heartbeat timeout': 60,
+  'heartbeat interval': 25,
+  'polling duration': 20,
+  'flash policy port': 10843,
+  'destroy buffer size': '10E7',
+  'destroy upgrade': true,
+  'browser client': true,
+  'browser client cache': true,
+  'browser client minification': false,
+  'browser client etag': false,
+  'browser client expires': 315360000,
+  'browser client gzip': false,
+  'browser client handler': false,
+  'match origin protocol': false,
+  store: undefined,
+  logger: undefined,
+  'log level': undefined,
+  'log colors': undefined,
+  'static': undefined,
+  resource: '/socket.io',
 
  /***************************************************************************
   *                                                                          *
@@ -104,12 +124,13 @@ module.exports.sockets = {
   * app's security.                                                          *
   *                                                                          *
   ***************************************************************************/
-  // beforeConnect: function(handshake, cb) {
+  beforeConnect: function(handshake, cb) {
   //   // `true` allows the connection
   //   return cb(null, true);
   //
   //   // (`false` would reject the connection)
-  // },
+    authorization: false
+  },
 
 
   /***************************************************************************
@@ -134,6 +155,12 @@ module.exports.sockets = {
   * transport should be disabled.                                            *
   *                                                                          *
   ***************************************************************************/
-  // transports: ["polling", "websocket"]
+  transports: [
+    "polling",
+    "websocket",
+    'htmlfile',
+    'xhr-polling',
+    'jsonp-polling'
+  ]
 
 };

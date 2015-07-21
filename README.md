@@ -145,6 +145,39 @@ Packages:
   port: 6379,
   db: 2,
   pass: null,
+  origins: '*:*',
+  heartbeats: true,
+  'close timeout': 60,
+  'heartbeat timeout': 60,
+  'heartbeat interval': 25,
+  'polling duration': 20,
+  'flash policy port': 10843,
+  'destroy buffer size': '10E7',
+  'destroy upgrade': true,
+  'browser client': true,
+  'browser client cache': true,
+  'browser client minification': false,
+  'browser client etag': false,
+  'browser client expires': 315360000,
+  'browser client gzip': false,
+  'browser client handler': false,
+  'match origin protocol': false,
+  store: undefined,
+  logger: undefined,
+  'log level': undefined,
+  'log colors': undefined,
+  'static': undefined,
+  resource: '/socket.io',
+  beforeConnect: function(handshake, cb) {
+    authorization: false
+  },
+  transports: [
+    "polling",
+    "websocket",
+    'htmlfile',
+    'xhr-polling',
+    'jsonp-polling'
+  ]
 
   Start up and see result
 
