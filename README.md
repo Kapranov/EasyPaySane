@@ -64,4 +64,12 @@ Packages:
             email:string
             telephone:string --pod
 
+7. edit client/app/pods/payment/template.hbs
+
+   We added welcome string for check in.
+
+   open browser on url http:212.26.132.49:4200/payment
+
+   and you can see result.
+
 Oleg G.kapranov 21 July 2015.
