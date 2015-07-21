@@ -1,7 +1,8 @@
 EasyPaySane - registration easypay application for Travel Agency.
 
-[Live Demo - Frontend](http://212.26.132.49:4200)
-[Live Demo - Backend](http://212.26.132.49:1337/api/v1/payments)
+[Demo - Frontend](http://212.26.132.49:4200)
+
+[Demo - Backend](http://212.26.132.49:1337/api/v1/payments)
 
 Packages:
 
@@ -16,14 +17,14 @@ Packages:
 2. bash> ember -v
    => version: 1.13.1 node: 0.12.0 npm: 2.12.1
 
-2. bash> sane new EasyPaySane -d mongo
-2. bash> sane new EasyPaySane -d redis
+3. bash> sane new EasyPaySane -d mongo
+   bash> sane new EasyPaySane -d redis
 
-3. in the server folder:
+4. in the server folder:
    bash> cd EasyPaySane
    bash> cd server
-   bash> npm i balderdashy/sails-hook-dev --save
-4. bash> sane up
+   bash> npm install balderdashy/sails-hook-dev --save
+5. bash> sane up
 
 This will create two servers. On living on port 1337 on your localhost
 and the other on port 4200. The port 1337 server is the Sails
