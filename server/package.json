@@ -16,7 +16,8 @@
     "sails-generate-ember-blueprints": "0.0.9",
     "sails-hook-autoreload": "^0.11.5",
     "sails-hook-dev": "balderdashy/sails-hook-dev",
-    "sails-redis": "^0.10.4"
+    "sails-redis": "^0.10.4",
+    "socket.io-redis": "^0.1.4"
   },
   "scripts": {
     "debug": "node debug app.js",

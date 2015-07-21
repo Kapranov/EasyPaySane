@@ -136,4 +136,18 @@ Packages:
 
   127.0.0.1:6379> select 2
 
+  bash> cd server
+  bash> npm install socket.io-redis@0.1.4 --save
+  bash> vim server/config/socket.js
+
+  adapter: 'socket.io-redis',
+  host: '127.0.0.1',
+  port: 6379,
+  db: 2,
+  pass: null,
+
+  Start up and see result
+
+  bash> sane up
+
 Oleg G.kapranov 21 July 2015.
