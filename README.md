@@ -125,10 +125,15 @@ Packages:
 
   bash> redis-cli
   127.0.0.1:6379> config get databases
+
   127.0.0.1:6379> info keyspace
+
   db0:keys=2,expires=0,avg_ttl=0
+
   db1:keys=1,expires=0,avg_ttl=0
+
   db2:keys=1,expires=1,avg_ttl=16099
+
   127.0.0.1:6379> select 2
 
 Oleg G.kapranov 21 July 2015.
