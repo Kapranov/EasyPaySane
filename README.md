@@ -13,19 +13,27 @@ Packages:
   5. .... next ...
 
 1. bash> sane --version
+
    => 0.0.24
+
 2. bash> ember -v
+
    => version: 1.13.1 node: 0.12.0 npm: 2.12.1
 
 3. bash> sane new EasyPaySane -d mongo
+
    bash> sane new EasyPaySane -d redis
 
 4. In the server folder:
+
     bash> cd EasyPaySane
+
     bash> cd server
+
     bash> npm install balderdashy/sails-hook-dev --save
 
 5. bash> sane up
+
    This will create two servers. One living on port 1337 on
    http://212.26.132.49 and the other on port 4200.
    The port 1337 server is the Sails application.
