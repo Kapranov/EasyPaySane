@@ -72,4 +72,63 @@ Packages:
 
    and you can see result.
 
+8.
+
+  My current stack
+
+  Node.js
+  Heruku   <---> hosted on ...
+  Sails.js <---> mongodb ... for models
+           <---> in memory ... for the session & socket store
+
+  and I want do next:
+
+  Node.js
+  Heruku    <---> hosted on ...
+  Sails.js  <---> radis ... for models
+            <---> redis ... for the sessions & socket store
+
+  bash> cd server
+  bash> npm install connect-redis@1.4.5
+  bash> vim server/config/local.js
+  for configuration of mongoDB or Redis uses local.js
+
+  moving session and socket to redis ...
+
+  bash> cd server
+  bash> npm install sails-redis                                             *
+  bash> vim server/config/connections.js
+
+  redis: {
+    adapter: 'sails-redis',
+    port: 6379,
+    host: '127.0.0.1',
+    database: 1
+  }
+
+
+  bash> vim server/config/session.js
+
+  cookie: {
+    maxAge: 24 * 60 * 60 * 1000
+  },
+
+  adapter: 'redis',
+
+  host: '127.0.0.1',
+  port: 6379,
+  ttl: 30,
+  db: 2,
+  pass: null,
+  prefix: 'sess:',
+
+
+  bash> redis-cli
+  127.0.0.1:6379> config get databases
+  127.0.0.1:6379> info keyspace
+  db0:keys=2,expires=0,avg_ttl=0
+  db1:keys=1,expires=0,avg_ttl=0
+  db2:keys=1,expires=1,avg_ttl=16099
+  127.0.0.1:6379> select 2
+
 Oleg G.kapranov 21 July 2015.

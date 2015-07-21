@@ -35,8 +35,8 @@ module.exports.connections = {
   redis: {
     adapter: 'sails-redis',
     port: 6379,
-    host: 'localhost',
-    database: null
+    host: '127.0.0.1',
+    database: 1
   }
 
   /***************************************************************************

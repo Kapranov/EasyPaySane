@@ -5,6 +5,7 @@
   "description": "a Sails application",
   "keywords": [],
   "dependencies": {
+    "connect-redis": "^2.4.0",
     "grunt-contrib-coffee": "~0.10.1",
     "include-all": "~0.1.3",
     "lodash": "^3.10.0",
