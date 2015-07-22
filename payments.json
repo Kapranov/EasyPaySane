@@ -1,0 +1,24 @@
+{
+  "payment": {
+    "contract": "A-999999",
+    "surname": "Kapranov Oleg",
+    "sum": 10235,
+    "commissionOne": 1.5,
+    "commissionTwo": 2,
+    "commission": 153.52,
+    "totalAmount": 10388,
+    "email": "lugatex@yahoo.com",
+    "telephone": "099-717-06-09"
+  },
+  {
+    "contract": "T-999999",
+    "surname": "Testing",
+    "sum": 10235,
+    "commissionOne": 1.5,
+    "commissionTwo": 2,
+    "commission": 153.52,
+    "totalAmount": 10388,
+    "email": "test@example.com",
+    "telephone": "099-717-06-09"
+  }
+}
