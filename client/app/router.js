@@ -6,10 +6,11 @@ var Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-  this.resource('payments', { path: '/' }, function() {
-    this.route('payments');
-  });
   this.route('payment');
+  this.route('payments');
+  this.route('user');
+  this.route('login');
+  this.route('register');
 });
 
 export default Router;
