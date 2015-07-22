@@ -12,19 +12,19 @@ Packages:
   4. Git        => Repository.
   5. .... next ...
 
-1. bash> sane --version
+ 1. bash> sane --version
 
-   => 0.0.24
+    => 0.0.24
 
-2. bash> ember -v
+ 2. bash> ember -v
 
-   => version: 1.13.1 node: 0.12.0 npm: 2.12.1
+    => version: 1.13.1 node: 0.12.0 npm: 2.12.1
 
-3. bash> sane new EasyPaySane -d mongo
+ 3. bash> sane new EasyPaySane -d mongo
 
-   bash> sane new EasyPaySane -d redis
+    bash> sane new EasyPaySane -d redis
 
-4. In the server folder:
+ 4. In the server folder:
 
     bash> cd EasyPaySane
 
@@ -32,19 +32,19 @@ Packages:
 
     bash> npm install balderdashy/sails-hook-dev --save
 
-5. bash> sane up
+ 5. bash> sane up
 
-   This will create two servers. One living on port 1337 on
-   http://212.26.132.49 and the other on port 4200.
-   The port 1337 server is the Sails application.
-   It's where REST API will live. And you can see bring it up
-   on your browser and you'll get a generic message welcoming
-   you to the backend. If you bring up the site on port 4200
-   you'll see the default 'Welcome to Ember.js' message.
+    This will create two servers. One living on port 1337 on
+    http://212.26.132.49 and the other on port 4200.
+    The port 1337 server is the Sails application.
+    It's where REST API will live. And you can see bring it up
+    on your browser and you'll get a generic message welcoming
+    you to the backend. If you bring up the site on port 4200
+    you'll see the default 'Welcome to Ember.js' message.
 
-6. Now that we see it works, we can generate the REST API.
-   We'll be creating model. It will consiste of some fields
-   and we'll use Ember-Pods.
+ 6. Now that we see it works, we can generate the REST API.
+    We'll be creating model. It will consiste of some fields
+    and we'll use Ember-Pods.
 
     bash> config/environment.js
 
@@ -64,47 +64,17 @@ Packages:
             email:string
             telephone:string --pod
 
-7. edit client/app/pods/payment/template.hbs
+ 7. edit client/app/pods/payment/template.hbs
 
-   We added welcome string for check in.
+    We added welcome string for check in.
 
-   open browser on url http:212.26.132.49:4200/payment
+    open browser on url http:212.26.132.49:4200/payment
 
-   and you can see result.
+    and you can see result.
 
-8. Add new record in redis
+ 8. Save sessions to redis
 
-   you can use addons for firefox REST-Client or curl
-
-   bash> curl -v -H "Content-Type: application/json" -X POST --data \
-            "payments.json" http://212.26.132.49:1337/api/v1/payments
-
-{
-  "payment": {
-    "contract": "A-999999",
-    "surname": "Kapranov Oleg",
-    "sum": 10235,
-    "commissionOne": 1.5,
-    "commissionTwo": 2,
-    "commission": 153.52,
-    "totalAmount": 10388,
-    "email": "lugatex@yahoo.com",
-    "telephone": "099-717-06-09"
-  },
-  {
-    "contract": "T-999999",
-    "surname": "Testing",
-    "sum": 10235,
-    "commissionOne": 1.5,
-    "commissionTwo": 2,
-    "commission": 153.52,
-    "totalAmount": 10388,
-    "email": "test@example.com",
-    "telephone": "099-717-06-09"
-  }
-}
-
-  My current stack
+    My current stack
 
   Node.js
   Heruku   <---> hosted on ...
@@ -213,4 +183,92 @@ Packages:
 
   bash> sane up
 
-Oleg G.kapranov 21 July 2015.
+ 9. Add new record in redis
+
+   you can use addons for firefox REST-Client or curl
+
+   bash> curl -v -H "Content-Type: application/json" -X POST --data \
+            "payments.json" http://212.26.132.49:1337/api/v1/payments
+
+{
+  "payment": {
+    "contract": "A-999999",
+    "surname": "Kapranov Oleg",
+    "sum": 10235,
+    "commissionOne": 1.5,
+    "commissionTwo": 2,
+    "commission": 153.52,
+    "totalAmount": 10388,
+    "email": "lugatex@yahoo.com",
+    "telephone": "099-717-06-09"
+  },
+  {
+    "contract": "T-999999",
+    "surname": "Testing",
+    "sum": 10235,
+    "commissionOne": 1.5,
+    "commissionTwo": 2,
+    "commission": 153.52,
+    "totalAmount": 10388,
+    "email": "test@example.com",
+    "telephone": "099-717-06-09"
+  }
+}
+
+
+    and we can use url too for insert new record:
+
+     /api/v1/payments?payment[contract]="T-999998"&payment[surname]="Arlynsky Dmitry"
+        &payment[sum]="10235.00"&payment[commissionOne]="1.5"&payment[commissionTwo]="2"
+        &payment[commission]="153.52"&payment[totalAmount]="10388.00"
+        &payment[email]="kapranov.lugatex@gmail.com"&payment[telephone]="099-717-06-09"
+
+ 10. We need to do is make sure Ember can retrieve the data and display it.
+
+    bash> cd client
+    bash> ember g resource posts
+
+    This will create a new payments route and template.
+
+    When it asks you to overwrite the payment model make sure you type in 'N'.
+
+    This was already generated earlier when we created the resource using Sane.
+
+    Inside the payments route we'll add the model hook.
+
+    bash> vim app/pods/payments/route.js
+
+      import Ember from 'ember';
+
+      export default Ember.Route.extend({
+
+        model: function (){
+
+          return this.store.find('payment');
+
+        }
+
+      });
+
+    We need to do is update the payments template and display each payment.
+
+      This is a list of all the payments
+
+      <h1>Payments</h1>
+
+      <ul>
+      {{#each p in model }}
+        <li>{{p.contract}}</li>
+        <li>{{p.surname}}</li>
+        <li>{{p.sum}}</li>
+        <li>{{p.commissionOne}}</li>
+        <li>{{p.commissionTwo}}</li>
+        <li>{{p.commission}}</li>
+        <li>{{p.totalAmount}}</li>
+        <li>{{p.email}}</li>
+        <li>{{p.telephone}}</li>
+        <br>
+        {{/each}}
+      </ul>
+
+Oleg G.kapranov 22 July 2015.

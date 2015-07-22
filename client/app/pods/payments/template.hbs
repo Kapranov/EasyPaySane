@@ -1,0 +1,18 @@
+This is a list of all the payments
+
+<h1>Payments</h1>
+
+<ul>
+{{#each p in model }}
+  <li>{{p.contract}}</li>
+  <li>{{p.surname}}</li>
+  <li>{{p.sum}}</li>
+  <li>{{p.commissionOne}}</li>
+  <li>{{p.commissionTwo}}</li>
+  <li>{{p.commission}}</li>
+  <li>{{p.totalAmount}}</li>
+  <li>{{p.email}}</li>
+  <li>{{p.telephone}}</li>
+  <br>
+  {{/each}}
+</ul>
