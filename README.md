@@ -1,4 +1,4 @@
-EasyPaySane - registration easypay application for Travel Agency.
+EasyPaySane - application for Travel Agency.
 -----------------------------------------------------------------
 
 [Demo - Frontend](http://212.26.132.49:4200)
