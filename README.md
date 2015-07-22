@@ -1,16 +1,25 @@
 EasyPaySane - registration easypay application for Travel Agency.
+-----------------------------------------------------------------
 
 [Demo - Frontend](http://212.26.132.49:4200)
 
 [Demo - Backend](http://212.26.132.49:1337/api/v1/payments)
 
-Packages:
+#### Packages:
 
-  1. Sane Stack => Sails.js, Ember-cli.
-  2. Redis      => Save cache sessions and data.
-  3. Ember Pods => Structuring project by feature.
-  4. Git        => Repository.
-  5. .... next ...
+
+  * Sane Stack => Sails.js, Ember-cli.
+  * Redis      => Save cache sessions and data.
+  * Ember Pods => Structuring project by feature.
+  * Git        => Repository.
+  * Install packages and early removed all 3 packages
+     with npm uninstall -g <package_name>
+
+      npm install -g sails
+      npm install -g ember-cli
+      npm install -g sane-cli
+  * .... next ...
+
 
  1. bash> sane --version
 
