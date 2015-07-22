@@ -72,7 +72,37 @@ Packages:
 
    and you can see result.
 
-8.
+8. Add new record in redis
+
+   you can use addons for firefox REST-Client or curl
+
+   bash> curl -v -H "Content-Type: application/json" -X POST --data \
+            "payments.json" http://212.26.132.49:1337/api/v1/payments
+
+{
+  "payment": {
+    "contract": "A-999999",
+    "surname": "Kapranov Oleg",
+    "sum": 10235,
+    "commissionOne": 1.5,
+    "commissionTwo": 2,
+    "commission": 153.52,
+    "totalAmount": 10388,
+    "email": "lugatex@yahoo.com",
+    "telephone": "099-717-06-09"
+  },
+  {
+    "contract": "T-999999",
+    "surname": "Testing",
+    "sum": 10235,
+    "commissionOne": 1.5,
+    "commissionTwo": 2,
+    "commission": 153.52,
+    "totalAmount": 10388,
+    "email": "test@example.com",
+    "telephone": "099-717-06-09"
+  }
+}
 
   My current stack
 
