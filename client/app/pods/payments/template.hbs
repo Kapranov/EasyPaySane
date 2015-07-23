@@ -3,7 +3,8 @@ This is a list of all the payments
 <h1>Payments</h1>
 
 <ul>
-{{#each p in model }}
+{{#each model as |p|}}
+  <li>{{p.id}}</li>
   <li>{{p.contract}}</li>
   <li>{{p.surname}}</li>
   <li>{{p.sum}}</li>

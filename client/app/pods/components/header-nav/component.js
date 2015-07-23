@@ -12,12 +12,6 @@ export default Ember.Component.extend({
   actions: {
     invalidateSession() {
       this.sendAction('invalidateSession');
-    },
-    back() {
-      this.sendAction('back');
-    },
-    forward() {
-      this.sendAction('forward');
     }
   }
 });
