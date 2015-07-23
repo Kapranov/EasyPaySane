@@ -280,4 +280,4 @@ EasyPaySane - application for Travel Agency.
         {{/each}}
       </ul>
 
-Oleg G.kapranov 22 July 2015.
+Oleg G.kapranov 23 July 2015.
