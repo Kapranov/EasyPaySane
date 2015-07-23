@@ -280,4 +280,15 @@ EasyPaySane - application for Travel Agency.
         {{/each}}
       </ul>
 
-Oleg G.kapranov 22 July 2015.
+
+http://discuss.emberjs.com/t/ember-js-1-13-nothing-displayed-on-each-even-though-i-can-see-it-on-the-ember-inspector/8237
+http://emberjs.com/blog/2015/06/18/ember-data-1-13-released.html#toc_transition-to-the-new-jsonserializer-and-restserializer-apis
+https://github.com/emberjs/data/blob/v1.13/packages/ember-data/lib/system/serializer.js#L28
+http://emberjs.com/deprecations/v1.x/
+https://github.com/emberjs/data/issues/3378
+https://github.com/emberjs/data/issues/3404
+https://github.com/emberjs/data/issues/3424
+http://emberjs.jsbin.com/kokotigoso/edit?html,js,output
+http://emberjs.jsbin.com/kubupaluma/edit?html,js,output
+
+Oleg G.kapranov 23 July 2015.
