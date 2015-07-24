@@ -9,6 +9,7 @@ Router.map(function() {
   this.route('payment');
   this.route('payments');
   this.route('user');
+  this.route('index');
   this.route('login');
   this.route('register');
 });
